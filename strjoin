@@ -75,3 +75,18 @@ char  *ft_strjoin(int size, char **strs, char *sep)
 
 
 
+int main()
+{
+  char *texte[] = {"ich", "will", "in", "42", "rein"};
+  char  *trennzeichen = "-";
+  char  *ergebnis;
+
+  ergebnis = ft_strjoin(4, texte, trennzeichen);
+  printf("ergebnis: %s", ergebnis);
+  free(ergebnis);
+  return (0);
+}
+
+}
+
+
