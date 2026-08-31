@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 
 int  messen (char *str)
 {
@@ -81,7 +83,7 @@ int main()
   char  *trennzeichen = "-";
   char  *ergebnis;
 
-  ergebnis = ft_strjoin(4, texte, trennzeichen);
+  ergebnis = ft_strjoin(5, texte, trennzeichen);
   printf("ergebnis: %s", ergebnis);
   free(ergebnis);
   return (0);
