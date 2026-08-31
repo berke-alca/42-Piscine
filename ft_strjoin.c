@@ -1,0 +1,90 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int  messen (char *str)
+{
+  int  counter;
+
+  counter = 0;
+  while (str[counter] != '\0')
+  { 
+    counter++;
+  }
+return (counter);
+}
+
+int  gesamt(int size, char **strs, char *sep)
+{
+  int  counter;
+  int  laenge;
+  int  n;
+  if (size <= 0)
+    return (1);
+  laenge = 1;
+  counter = 0;
+  while (counter < size)
+  {
+    laenge = laenge + messen (strs[counter]);
+    counter++;
+  }
+  n = messen(sep);
+  laenge = laenge + (n * (size - 1));
+  return (laenge);
+}
+
+int  bauen (char *fertig, char *teil, int n)
+{
+  int counter1;
+
+  counter1 = 0;
+  while (teil[counter1])
+  {
+    fertig[n] = teil[counter1];
+    n++;
+    counter1++;
+  }
+return (n);
+}
+
+
+char  *ft_strjoin(int size, char **strs, char *sep)
+{
+  int  counter;
+  int  n;
+  char  *ergebnis;
+
+  ergebnis = (char *)malloc(gesamt(size, strs, sep) * sizeof(char));
+  if (!ergebnis)
+    return (0);
+  if (size <= 0)
+  {
+    ergebnis[0] = '\0';
+    return (ergebnis);
+  }
+  counter = 0;
+  n = 0;
+  while (counter < size)
+  {
+    n = bauen(ergebnis, strs[counter], n);
+    if (counter < size - 1)
+      n = bauen(ergebnis, sep, n);
+    counter++;
+  }
+  ergebnis[n] = '\0';
+  return (ergebnis);
+
+}
+
+
+
+int main()
+{
+  char *texte[] = {"ich", "will", "in", "42", "rein"};
+  char  *trennzeichen = "-";
+  char  *ergebnis;
+
+  ergebnis = ft_strjoin(5, texte, trennzeichen);
+  printf("ergebnis: %s\n", ergebnis);
+  free(ergebnis);
+  return (0);
+}
