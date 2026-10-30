@@ -21,4 +21,4 @@ The [drafts](./drafts) folder contains earlier working versions that are not par
 
 ## Next step
 
-➡️ [42 Core Curriculum](https://github.com/b3-3/CoreCurriculum)
+➡️ [42 Core Curriculum](https://github.com/berke-alca/CoreCurriculum)
